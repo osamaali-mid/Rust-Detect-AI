@@ -5,7 +5,7 @@ This project demonstrates real-time object detection entirely in the browser usi
 
 The advantage of this setup is that all object detection happens locally in the browser, without the need for a server backend, resulting in better performance and user privacy.
 
-[You can check out the live version here](https://object-detection.martishin.com/)!
+[Check out the live version here](https://object-detection.martishin.com/)!
 
 ## Running Locally
 

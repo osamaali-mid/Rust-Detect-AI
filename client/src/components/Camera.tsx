@@ -55,7 +55,6 @@ const Camera = () => {
     if (ctx && canvas) {
       ctx.clearRect(0, 0, canvas.width, canvas.height)
 
-      // Match canvas dimensions to the video feed
       canvas.width = width
       canvas.height = height
 
@@ -63,14 +62,11 @@ const Camera = () => {
         const [label, bbox] = detection
         const { xmin, xmax, ymin, ymax, confidence } = bbox
 
-        // Draw bounding box
         ctx.strokeStyle = "red"
         ctx.lineWidth = 2
 
-        // Make sure the coordinates match the canvas size
         ctx.strokeRect(xmin, ymin, xmax - xmin, ymax - ymin)
 
-        // Draw label
         ctx.fillStyle = "red"
         ctx.font = "16px Arial"
         ctx.fillText(`${label} (${(confidence * 100).toFixed(1)}%)`, xmin, ymin - 5)
@@ -110,7 +106,7 @@ const Camera = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       processFrameWithWorker()
-    }, 1000) // Process every second
+    }, 1000)
     return () => clearInterval(interval)
   }, [processFrameWithWorker])
 
@@ -127,7 +123,7 @@ const Camera = () => {
           left: 0,
           width: 640,
           height: 480,
-          zIndex: 1, // Ensure the webcam is behind the canvas
+          zIndex: 1,
         }}
       />
       <canvas
@@ -138,7 +134,7 @@ const Camera = () => {
           left: 0,
           width: 640,
           height: 480,
-          zIndex: 2, // Ensure the canvas is in front of the webcam
+          zIndex: 2,
         }}
       />
     </>

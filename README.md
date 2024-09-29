@@ -43,7 +43,7 @@ The advantage of this setup is that all object detection happens locally in the 
 
 ## Technologies Used
 
-- **React (Client)** - for capturing video frames and displaying object detection results.
-- **Rust (WASM)** - for real-time object detection using WASM and YOLOv8 model.
+- **React (Client)** - for capturing video frames and displaying object detection results
+- **Rust (WASM)** - for real-time object detection using WASM and YOLOv8 model
 - **candle** - minimalist machine learning framework in Rust, used for reimplementing the YOLOv8 model
-- **YOLOv8** - state-of-the-art object detection model. Only the pre-trained weights (in safetensors format) are used.
+- **YOLOv8** - state-of-the-art object detection model. Only the pre-trained weights (in safetensors format) are used

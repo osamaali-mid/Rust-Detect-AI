@@ -39,7 +39,7 @@ The advantage of this setup is that all object detection happens locally in the 
    cd yolo_wasm
    make build
     ```
-   Module will be placed into `client/src/model`
+   Compiled module will be placed into `client/src/model`
 
 ## Technologies Used
 

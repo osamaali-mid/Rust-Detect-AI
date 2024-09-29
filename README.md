@@ -14,7 +14,7 @@ The advantage of this setup is that all object detection happens locally in the 
 ### Prerequisites
 
 - [Node.js & npm](https://nodejs.org/en/download/package-manager) - for the React client
-- [Rust](https://www.rust-lang.org/tools/install) - for the React WebAssembly module
+- [Rust](https://www.rust-lang.org/tools/install) - for the WebAssembly module
 
 ### Steps
 

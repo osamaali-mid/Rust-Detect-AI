@@ -1,9 +1,11 @@
 
 # YOLOv8 + WASM Real-time Object Detection
 
-This project demonstrates real-time object detection entirely in the browser using YOLOv8 and WebAssembly (WASM). The front-end is built with React.js and integrates with the Webcam to capture and process video frames, while the object detection is handled by a Rust module compiled into WebAssembly.
+This project demonstrates real-time object detection entirely in the browser using YOLOv8 and WebAssembly (WASM). The front-end is built with React.js and integrates with the webcam to capture and process video frames, while the object detection is handled by a Rust module compiled into WebAssembly.
 
-The advantage of this setup is that all object detection happens locally in the browser, without the need for a server backend, resulting in faster performance and greater privacy.
+The advantage of this setup is that all object detection happens locally in the browser, without the need for a server backend, resulting in faster performance and improved privacy.
+
+[You can check out the live version here](https://object-detection.martishin.com/)!
 
 <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2o2MmNvczQyeGl6OWZ1cmF6MzdhMHk0cmh4bng5M3R3NHp4aWNiZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/B4TCB9g4Mj6XzWyldB/giphy.gif" width="500"/>
 

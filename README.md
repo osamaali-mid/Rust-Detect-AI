@@ -7,7 +7,10 @@ The advantage of this setup is that all object detection happens locally in the 
 
 [Check out the live version here](https://object-detection.martishin.com/)!
 
+<details>
+<summary>Demo</summary>
 <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExcWw2cHFycnAwbHJ2dzhma2ZieWc4OHpkdXk0dDYxdWZhNm95aWZuNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/8uwQcYcTHGawVJrvXz/giphy.gif" width="500"/>
+</details>
 
 ## Running Locally
 

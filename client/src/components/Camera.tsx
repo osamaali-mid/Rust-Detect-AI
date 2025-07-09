@@ -13,7 +13,7 @@ const Camera = () => {
   const workerRef = useRef<Worker | null>(null)
 
   useEffect(() => {
-    workerRef.current = new Worker(new URL("../workers/yoloWorker.js", import.meta.url), {
+    workerRef.current = new Worker(new URL("../workers/yoloWorker.ts", import.meta.url), {
       type: "module",
     })
 
@@ -26,10 +26,13 @@ const Camera = () => {
       }
 
       if (status === "complete") {
-        const detections = JSON.parse(output)
-
-        console.log("Detections from worker: ", detections)
-        drawDetections(detections, 640, 480) // Assuming 640x480 video size
+        try {
+          const detections = JSON.parse(output)
+          console.log("Detections from worker: ", detections)
+          drawDetections(detections, 640, 480)
+        } catch (parseError) {
+          console.error("Error parsing detections:", parseError)
+        }
       }
     }
 
@@ -48,7 +51,7 @@ const Camera = () => {
     return bytes
   }
 
-  const drawDetections = (detections: any[], width: number, height: number) => {
+  const drawDetections = (detections: [string, any][], width: number, height: number) => {
     const canvas = canvasRef.current
     const ctx = canvas?.getContext("2d")
 
@@ -87,7 +90,6 @@ const Camera = () => {
   const processFrameWithWorker = useCallback(() => {
     if (webcamRef.current && workerRef.current) {
       const imageSrc = webcamRef.current.getScreenshot({ width: 640, height: 480 })
-      console.log("sending image to worker")
 
       if (imageSrc) {
         const imageData = base64ToUint8Array(imageSrc)
@@ -106,12 +108,12 @@ const Camera = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       processFrameWithWorker()
-    }, 1000)
+    }, 2000) // Reduced frequency to 2 seconds for better performance
     return () => clearInterval(interval)
   }, [processFrameWithWorker])
 
   return (
-    <>
+    <div style={{ position: "relative", display: "inline-block" }}>
       <Webcam
         ref={webcamRef}
         audio={false}
@@ -135,9 +137,10 @@ const Camera = () => {
           width: 640,
           height: 480,
           zIndex: 2,
+          pointerEvents: "none",
         }}
       />
-    </>
+    </div>
   )
 }
 
